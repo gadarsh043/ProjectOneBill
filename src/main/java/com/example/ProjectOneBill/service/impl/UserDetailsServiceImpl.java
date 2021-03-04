@@ -2,7 +2,7 @@ package com.example.ProjectOneBill.service.impl;
 
 import com.example.ProjectOneBill.entity.ApplicationUser;
 import com.example.ProjectOneBill.repository.ApplicationUserRepository;
-import com.example.ProjectOneBill.service.UserDetailsService;
+//import com.example.ProjectOneBill.service.UserDetailsService;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -12,7 +12,7 @@ import static java.util.Collections.emptyList;
 
 @Service
 
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class UserDetailsServiceImpl implements org.springframework.security.core.userdetails.UserDetailsService {
 
     private ApplicationUserRepository applicationUserRepository;
 

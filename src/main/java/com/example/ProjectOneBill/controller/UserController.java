@@ -2,6 +2,7 @@ package com.example.ProjectOneBill.controller;
 
 import com.example.ProjectOneBill.dto.UserRequestDTO;
 //import com.example.ProjectOneBill.dto.UserResponseDTO;
+import com.example.ProjectOneBill.entity.ApplicationUser;
 import com.example.ProjectOneBill.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -26,6 +27,13 @@ public class UserController {
 
     }
 
+    //GET
+
+//    @PostMapping ("/login")
+//    public String login(@RequestBody UserRequestDTO user){
+//        return "Logged in";
+//    }
+//Logged
 
 
 
