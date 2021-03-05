@@ -27,13 +27,11 @@ public class UserController {
 
     }
 
-    //GET
+    @GetMapping ("/")
+    public String mock(){
+        return "Hello authorized user!";
+    }
 
-//    @PostMapping ("/login")
-//    public String login(@RequestBody UserRequestDTO user){
-//        return "Logged in";
-//    }
-//Logged
 
 
 
