@@ -16,14 +16,21 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private ApplicationUserRepository applicationUserRepository;
 
-    public void signUp(UserRequestDTO user){
-        System.out.println(user);
-        ApplicationUser userTosave = new ApplicationUser();
-        BeanUtils.copyProperties(user, userTosave);
-        userTosave.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+    public String signUp(UserRequestDTO user){
+        if (applicationUserRepository.findByUsername(user.getUsername()) == null) {
 
-        applicationUserRepository.save(userTosave);
-        System.out.println(userTosave);
+
+            System.out.println(user);
+            ApplicationUser userTosave = new ApplicationUser();
+            BeanUtils.copyProperties(user, userTosave);
+            userTosave.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+
+            applicationUserRepository.save(userTosave);
+            System.out.println(userTosave);
+            return ("User saved");
+        }
+
+        return ("User already exists!");
 
 
     }

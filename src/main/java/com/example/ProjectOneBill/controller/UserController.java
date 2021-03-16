@@ -24,9 +24,9 @@ public class UserController {
 
     //POST
     @PostMapping("/sign-up")
-    public void register (@RequestBody UserRequestDTO user){
+    public String register (@RequestBody UserRequestDTO user){
         System.out.println("On this");
-        userService.signUp(user);
+        return userService.signUp(user);
 
     }
 

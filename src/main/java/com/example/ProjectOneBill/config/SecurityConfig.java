@@ -25,12 +25,12 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import static com.example.ProjectOneBill.constants.Constants.SIGN_UP_URL;
+import java.util.Arrays;
+
+//import static com.example.ProjectOneBill.constants.Constants.SIGN_UP_URL;
 
 @Configuration
 @EnableWebSecurity
-
-
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
@@ -78,15 +78,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
-
-
-
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        corsConfiguration.addAllowedMethod("GET");
+        corsConfiguration.addAllowedMethod("POST");
+        corsConfiguration.addAllowedMethod("PUT");
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
-
-
-
-
+        source.registerCorsConfiguration("/**", corsConfiguration.applyPermitDefaultValues());
 
         return source;
     }
